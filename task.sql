@@ -4,8 +4,9 @@ DELIMITER //
 
 CREATE PROCEDURE get_warehouse_product_inventory(IN WarehouseID INT)
 BEGIN
-    SELECT * FROM Warehouses
-    WHERE Warehouses.ID = WarehouseID
+    SELECT Products.Name, ProductInventory.WarehouseAmount
+    FROM Products
+    JOIN ProductInventory ON ProductInventory.WarehouseID = WarehouseID
 END //
 
 DELIMITER ;
